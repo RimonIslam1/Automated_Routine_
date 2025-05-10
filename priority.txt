@@ -1,0 +1,7 @@
+Prof. Dr. Anisur Rahman,1,Sunday 9am-11am,Monday 10am-4pm,Tuesday 2pm-5pm,Wednesday 9am-3pm,Thursday 10am-4pm
+Prof. Dr. Abu Shamim,2,Sunday 9am-1pm,Sunday 3pm-5pm,Monday 2pm-5pm,Tuesday 10am-1pm,Tuesday 2pm-4pm,Wednesday 9am-12pm,Thursday 11am-1pm
+Prof. Dr. Rafijul Islam,3,Sunday 10am-1pm,Monday 2pm-5pm,Tuesday 9am-12pm,Wednesday 2pm-4pm,Thursday 12pm-4pm
+Prof. Dr. Anupom Boiragi,4,Sunday 10am-4pm,Monday 10am-1pm,Tuesday 2pm-5pm,Wednesday 9am-12pm,Thursday 11am-1pm,Thursday 2pm-5pm
+Ast. Prof. Dr. Monisanker Mondal,5,Sunday 11am-5pm,Monday 2pm-5pm,Tuesday 10am-1pm,Wednesday 10am-11am,Thursday 2pm-5pm
+Farhan Sadik,6,Sunday 12pm-5pm,Monday 10am-1pm,Tuesday 9am-11am,Tuesday 2pm-5pm,Wednesday 11am-4pm,Thursday 2pm-4pm
+Ast. Aminul Islam,7,Sunday 11am-5pm,Monday 9am-1pm,Tuesday 2pm-5pm,Wednesday 11am-4pm,Thursday 10am-3pm
