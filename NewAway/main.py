@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 import json, os
 from collections import defaultdict
+import ast  # Add this import for safely evaluating strings as Python literals
 
 from reportlab.lib.pagesizes import letter, landscape
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Spacer
@@ -49,14 +50,18 @@ class CourseSchedulerApp:
     def load_teacher_priorities(self):
         """Load teacher priorities and slot preferences from the priority.txt file."""
         if os.path.exists(self.priority_file):
+            priorities = {}
             with open(self.priority_file, "r") as file:
-                return {
-                    line.split(",")[0].strip(): {
-                        "priority": int(line.split(",")[1].strip()),
-                        "slots": [slot.strip() for slot in line.split(",")[2:]]
-                    }
-                    for line in file.readlines()
-                }
+                for line in file.readlines():
+                    try:
+                        parts = line.split(",")
+                        teacher_name = parts[0].strip()
+                        priority = int(parts[1].strip())
+                        slots = ast.literal_eval(parts[2].strip())  # Safely parse the slots as a list
+                        priorities[teacher_name] = {"priority": priority, "slots": slots}
+                    except (ValueError, SyntaxError, IndexError) as e:
+                        print(f"Skipping invalid line in priority.txt: {line.strip()} (Error: {e})")
+            return priorities
         return {}
 
     def save_teacher_priorities(self):
@@ -324,6 +329,12 @@ class CourseSchedulerApp:
         for c in self.courses:
             year, code, teacher, credit = c["year"], c["code"], c["teacher"], c["credit"]
             assigned = 0
+
+            # Check if the teacher exists in the priorities
+            if teacher not in self.teacher_priorities:
+                print(f"Warning: Teacher {teacher} not found in priorities. Skipping course {code}.")
+                continue
+
             prefs = self.teacher_priorities[teacher]["slots"]  # Get slot preferences
 
             # Safely extract numeric part of the course code and check if it's odd or even

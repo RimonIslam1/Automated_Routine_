@@ -2,3 +2,21 @@
 {"code": "CSE 1202", "name": "OOP Lab", "year": 1, "credit": 1.5, "teacher": "Prof. Dr. Anisur Rahman"}
 {"code": "CSE 4103", "name": "CSE 4103", "year": 4, "credit": 3.0, "teacher": "Prof. Dr. Rameswar Debnath"}
 {"code": "CSE 4104", "name": "CSE 4104", "year": 4, "credit": 1.0, "teacher": "Prof. Dr. Rameswar Debnath"}
+{"code": "CSE 3107", "name": "CSE 3107", "year": 3, "credit": 3.0, "teacher": "Prof. Dr. Abu Shamim"}
+{"code": "CSE 3108", "name": "31", "year": 3, "credit": 1.0, "teacher": "Prof. Dr. Abu Shamim"}
+{"code": "CSE 4123", "name": "41", "year": 4, "credit": 3.0, "teacher": "Dr. Amit Kumar Mondal"}
+{"code": "CSE 4105", "name": "41", "year": 4, "credit": 3.0, "teacher": "Prof. Dr. Anupam Kumar Bairagi"}
+{"code": "CSE 3103", "name": "31", "year": 3, "credit": 3.0, "teacher": "Prof. Dr. Kazi MAsudul Alam"}
+{"code": "CSE 3104", "name": "31", "year": 3, "credit": 1.0, "teacher": "Prof. Dr. Kazi MAsudul Alam"}
+{"code": "CSE 3102", "name": "31", "year": 3, "credit": 1.0, "teacher": "Prof. Dr. SK Alamgir Hossain"}
+{"code": "CSE 3101", "name": "31", "year": 3, "credit": 3.0, "teacher": "Prof. Dr. SK Alamgir Hossain"}
+{"code": "CSE 4121", "name": "41", "year": 4, "credit": 3.0, "teacher": "Dr. Manishankar Mondal"}
+{"code": "CSE 3105", "name": "31", "year": 3, "credit": 3.0, "teacher": "Atanu Shome"}
+{"code": "CSE 3106", "name": "31", "year": 3, "credit": 1.0, "teacher": "Atanu Shome"}
+{"code": "CSE 2103", "name": "CA", "year": 2, "credit": 3.0, "teacher": "Atanu Shome"}
+{"code": "CSE 2204", "name": "CAL", "year": 2, "credit": 1.0, "teacher": "Atanu Shome"}
+{"code": "CSE 2205", "name": "DB", "year": 2, "credit": 3.0, "teacher": "Aminul Islam"}
+{"code": "CSE 2206", "name": "DBL", "year": 2, "credit": 1.5, "teacher": "Aminul Islam"}
+{"code": "CSE 2201", "name": "A", "year": 2, "credit": 3.0, "teacher": "Sajib Chatterje"}
+{"code": "CSE 2202", "name": "Al", "year": 2, "credit": 1.0, "teacher": "Sajib Chatterje"}
+{"code": "CSE 4100", "name": "thesis", "year": 4, "credit": 1.0, "teacher": "Farhan Sadik"}

@@ -2,13 +2,13 @@ Prof. Dr. Anisur Rahman,1,['Monday 12pm-1pm', 'Tuesday 12pm-1pm', 'Wednesday 12p
 Prof. Dr. Abu Shamim,2,['Sunday 10am-1pm', 'Monday 9am-10am', 'Tuesday 9am-10am', 'Tuesday 9am-10am', 'Wednesday 9am-10am']
 Prof. Dr. Rafijul Haque,3,['Sunday 10am-1pm', 'Monday 2pm-5pm', 'Tuesday 9am-12pm', 'Wednesday 2pm-4pm', 'Thursday 12pm-4pm']
 Prof. Dr. Anupam Kumar Bairagi,4,['Sunday 12am-1pm', 'Monday 10am-11am', 'Tuesday 10am-5pm']
-Prof. Dr. Kamrul Hasan Talukder,5,Sunday 10am-11am, Monday 2pm-5pm, Wednesday 9am-12pm
-Prof. Dr. Rameswar Debnath,6,Sunday 11am-12pm, Monday 11am-12pm, Tuesday 11am-12pm, Wednesday 2pm-5pm
-Prof. Dr. Kazi MAsudul Alam,7,Monday 10am-11am, Tuesday 10am-11am, Wednesday 10am-11am, Thursday 10am-1pm
-Prof. Dr. SK Alamgir Hossain,7,Monday 11am-5pm,Tuesday 11am-12pm, Wednesday 11am-12pm, Tuesday 10am-12pm
-Dr. Manishankar Mondal,9,Sunday 2pm-3pm, Tuesday 12pm-1pm, Wednesday 12pm-1pm, Thursday 10am-1pm
-Dr. Amit Kumar Mondal,10,Sunday 12pm-1pm, Monday 10am-11am, Tuesday 10am-5pm
-Atanu Shome,11,Sunday 12pm-1pm, Monday 12pm-1pm, Wednesday 10am-5pm, Thursday 12pm-1pm
-Aminul Islam,12,Sunday 10am-11am, Monday 10am-11am, Wednesday 12pm-1pm,Thursday 2pm-5pm
-Sajib Chatterje,13,Monday 12pm-5pm, Wednesday 10am-12pm
-Farhan Sadik,14,Thursday 9am-5pm
+Prof. Dr. Kamrul Hasan Talukder,5,['Sunday 10am-11am', 'Monday 2pm-5pm', 'Wednesday 9am-12pm']
+Prof. Dr. Rameswar Debnath,6,['Sunday 11am-12pm', 'Monday 11am-12pm', 'Tuesday 11am-12pm', 'Wednesday 2pm-5pm']
+Prof. Dr. Kazi MAsudul Alam,7,['Monday 10am-11am', 'Tuesday 10am-11am', 'Wednesday 10am-11am', 'Thursday 10am-1pm']
+Prof. Dr. SK Alamgir Hossain,7,['Monday 11am-5pm', 'Tuesday 11am-12pm', 'Wednesday 11am-12pm', 'Tuesday 10am-12pm']
+Dr. Manishankar Mondal,9,['Sunday 2pm-3pm', 'Tuesday 12pm-1pm', 'Wednesday 12pm-1pm', 'Thursday 10am-1pm']
+Dr. Amit Kumar Mondal,10,['Sunday 12pm-1pm', 'Monday 10am-11am', 'Tuesday 10am-5pm']
+Atanu Shome,11,['Sunday 12pm-1pm', 'Monday 12pm-1pm', 'Wednesday 10am-5pm', 'Thursday 12pm-1pm']
+Aminul Islam,12,['Sunday 10am-11am', 'Monday 10am-11am', 'Wednesday 12pm-1pm', 'Thursday 2pm-5pm']
+Sajib Chatterje,13,['Monday 12pm-5pm', 'Wednesday 10am-12pm']
+Farhan Sadik,14,['Thursday 9am-5pm']
