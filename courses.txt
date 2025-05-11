@@ -1,13 +1,4 @@
 {"code": "CSE 1201", "name": "OOP", "year": 1, "credit": 3.0, "teacher": "Prof. Dr. Anisur Rahman"}
-{"code": "CSE 2105", "name": "DLD", "year": 2, "credit": 3.0, "teacher": "Prof. Dr. Anisur Rahman"}
-{"code": "CSE 2106", "name": "DLD Lab", "year": 2, "credit": 1.5, "teacher": "Prof. Dr. Anisur Rahman"}
-{"code": "CSE 1203", "name": "DM", "year": 1, "credit": 3.0, "teacher": "Prof. Dr. Abu Shamim"}
 {"code": "CSE 1202", "name": "OOP Lab", "year": 1, "credit": 1.5, "teacher": "Prof. Dr. Anisur Rahman"}
-{"code": "CSE 3101", "name": "DCCN", "year": 3, "credit": 3.0, "teacher": "Prof. Dr. Abu Shamim"}
-{"code": "CSE 4200", "name": "Thesis", "year": 4, "credit": 1.0, "teacher": "Prof. Dr. Abu Shamim"}
-{"code": "CSE 1200", "name": "Computer Fundamental", "year": 1, "credit": 1.5, "teacher": "Farhan Sadik"}
-{"code": "CSE 1202", "name": "SP Project", "year": 1, "credit": 1.5, "teacher": "Ast. Prof. Dr. Monisanker Mondal"}
-{"code": "CSE 2205", "name": "Database", "year": 2, "credit": 3.0, "teacher": "Ast. Aminul Islam"}
-{"code": "CSE 2206", "name": "DB Project", "year": 2, "credit": 1.0, "teacher": "Ast. Aminul Islam"}
-{"code": "CSE 3103", "name": "SEIS", "year": 3, "credit": 3.0, "teacher": "Ast. Aminul Islam"}
-{"code": "CSE 3104", "name": "SEIS Lab", "year": 3, "credit": 1.5, "teacher": "Ast. Aminul Islam"}
+{"code": "CSE 4103", "name": "CSE 4103", "year": 4, "credit": 3.0, "teacher": "Prof. Dr. Rameswar Debnath"}
+{"code": "CSE 4104", "name": "CSE 4104", "year": 4, "credit": 1.0, "teacher": "Prof. Dr. Rameswar Debnath"}
