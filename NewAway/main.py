@@ -23,7 +23,8 @@ class CourseSchedulerApp:
         self.courses_file = "courses.txt"
         self.priority_file = "priority.txt"  # New file for teacher priorities
         self.teachers = self.load_teachers()
-        self.teacher_priorities = self.load_teacher_priorities()  # Load priorities
+        self.validate_priority_file()
+        self.teacher_priorities = self.load_teacher_priorities()
         self.courses = self.load_courses()
 
         self.notebook = ttk.Notebook(root)
@@ -69,6 +70,24 @@ class CourseSchedulerApp:
         with open(self.priority_file, "w") as file:
             for teacher, data in self.teacher_priorities.items():
                 file.write(f"{teacher},{data['priority']},{data['slots']}\n")
+
+    def validate_priority_file(self):
+        """Validate and fix common issues in the priority.txt file."""
+        if os.path.exists(self.priority_file):
+            valid_lines = []
+            with open(self.priority_file, "r") as file:
+                for line in file.readlines():
+                    try:
+                        parts = line.split(",")
+                        teacher_name = parts[0].strip()
+                        priority = int(parts[1].strip())
+                        slots = ast.literal_eval(parts[2].strip())  # Validate slots
+                        valid_lines.append(line.strip())
+                    except (ValueError, SyntaxError, IndexError):
+                        print(f"Invalid line detected and skipped: {line.strip()}")
+            # Overwrite the file with valid lines
+            with open(self.priority_file, "w") as file:
+                file.writelines(f"{line}\n" for line in valid_lines)
 
     def save_teachers(self):
         """Save teachers to the teachers.txt file."""
@@ -330,7 +349,6 @@ class CourseSchedulerApp:
             year, code, teacher, credit = c["year"], c["code"], c["teacher"], c["credit"]
             assigned = 0
 
-            # Check if the teacher exists in the priorities
             if teacher not in self.teacher_priorities:
                 print(f"Warning: Teacher {teacher} not found in priorities. Skipping course {code}.")
                 continue
