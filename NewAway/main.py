@@ -231,79 +231,99 @@ class CourseSchedulerApp:
         self._create_pdf(routine, teacher_short_names)
 
     def _process_even_courses(self, routine, teacher_schedule, teacher_short_names):
-        """Backtracking implementation for even courses"""
-        for course in [c for c in self.courses if self._is_even_course(c["code"])]:
+        """Backtracking for even courses: assign 3 consecutive slots (no break slot)"""
+        even_courses = [c for c in self.courses if self._is_even_course(c["code"])]
+        for course in even_courses:
             assigned = False
             teacher = course["teacher"]
             year = course["year"]
             code = course["code"]
-            
-            # Try preferences first
+
+            # Try teacher's preferences first
             if teacher in self.teacher_priorities:
                 for pref in self.teacher_priorities[teacher]["slots"]:
                     try:
                         day, time_range = pref.split(" ", 1)
                         slots = self._parse_time_range(time_range)
-                        if self._assign_consecutive_slots(teacher, year, day, slots[0], code, 
-                                                        routine, teacher_schedule, 
-                                                        teacher_short_names):
-                            assigned = True
+                        # Try all possible 3-slot windows in this preference, skipping break slot
+                        for i in range(len(slots) - 2):
+                            window = slots[i:i+3]
+                            if 5 in window:  # skip if break slot is in window
+                                continue
+                            if all(self._can_assign(teacher, year, day, s, routine, teacher_schedule) for s in window):
+                                for s in window:
+                                    routine[year][day][s] = (code, teacher_short_names[teacher])
+                                    teacher_schedule[teacher][day].add(s)
+                                assigned = True
+                                break
+                        if assigned:
                             break
                     except (ValueError, IndexError):
                         continue
-            
-            # If preferences failed, try all possible slots
+
+            # If not assigned, try all possible days and slots (backtracking)
             if not assigned:
                 for day in DAYS:
-                    for slot in SLOTS:
-                        if slot <= max(SLOTS) - 2:  # Need 3 consecutive slots
-                            if self._assign_consecutive_slots(teacher, year, day, slot, code,
-                                                            routine, teacher_schedule,
-                                                            teacher_short_names):
-                                assigned = True
-                                break
+                    for start_slot in SLOTS:
+                        if start_slot > max(SLOTS) - 2 or 5 in [start_slot, start_slot+1, start_slot+2]:
+                            continue  # skip if break slot is in window
+                        window = [start_slot, start_slot+1, start_slot+2]
+                        if all(self._can_assign(teacher, year, day, s, routine, teacher_schedule) for s in window):
+                            for s in window:
+                                routine[year][day][s] = (code, teacher_short_names[teacher])
+                                teacher_schedule[teacher][day].add(s)
+                            assigned = True
+                            break
                     if assigned:
                         break
-            
             if not assigned:
                 print(f"Warning: Could not assign even course {code}")
 
     def _process_odd_courses(self, routine, teacher_schedule, teacher_short_names):
-        """Sequential assignment for odd courses"""
-        for course in [c for c in self.courses if not self._is_even_course(c["code"])]:
+        """Assign odd courses: one slot per day, split across days, with backtracking"""
+        odd_courses = [c for c in self.courses if not self._is_even_course(c["code"])]
+        for course in odd_courses:
             teacher = course["teacher"]
             year = course["year"]
             code = course["code"]
-            credit = course["credit"]
+            credit = int(course["credit"])
             assigned_slots = 0
-            
-            # Try preferences first
+            used_days = set()
+
+            # Try teacher's preferences first
             if teacher in self.teacher_priorities:
                 for pref in self.teacher_priorities[teacher]["slots"]:
+                    if assigned_slots >= credit:
+                        break
                     try:
                         day, time_range = pref.split(" ", 1)
+                        if day in used_days:
+                            continue  # don't assign more than one slot per day for this course
                         slots = self._parse_time_range(time_range)
                         for slot in slots:
-                            if assigned_slots >= credit:
-                                break
                             if self._can_assign(teacher, year, day, slot, routine, teacher_schedule):
                                 routine[year][day][slot] = (code, teacher_short_names[teacher])
                                 teacher_schedule[teacher][day].add(slot)
                                 assigned_slots += 1
+                                used_days.add(day)
+                                break
                     except (ValueError, IndexError):
                         continue
-            
-            # Fill remaining slots if needed
+
+            # If not enough slots assigned, try all days/slots (backtracking)
             if assigned_slots < credit:
                 for day in DAYS:
+                    if assigned_slots >= credit:
+                        break
+                    if day in used_days:
+                        continue
                     for slot in SLOTS:
-                        if assigned_slots >= credit:
-                            break
                         if self._can_assign(teacher, year, day, slot, routine, teacher_schedule):
                             routine[year][day][slot] = (code, teacher_short_names[teacher])
                             teacher_schedule[teacher][day].add(slot)
                             assigned_slots += 1
-            
+                            used_days.add(day)
+                            break
             if assigned_slots < credit:
                 print(f"Warning: Only assigned {assigned_slots}/{credit} slots for {code}")
 
